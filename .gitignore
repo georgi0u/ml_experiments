@@ -1,0 +1,4 @@
+network
+*.csv
+
+.vscode
