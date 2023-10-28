@@ -42,15 +42,16 @@ Learn the concepts of, if not the details of:
 
 ## Checkpoint 4
 
-* Watch Convolutions https://www.youtube.com/watch?v=KuXjwB4LzSA
+* Watch [lecture on Convolutions](https://www.youtube.com/watch?v=KuXjwB4LzSA)
 
 Convolutions can let us extract "features" from an input.
 e.g., w/r/t imagery, we can get edges.
 
 Map these convolutions of the input to a hidden layer using a single set of "shared" weights and biases and you get a feature map.
 
+### Note
 
-**Note:** This is probably worth going back and implementing.
+This is probably worth going back and implementing.
 
 
 ## Checkpoint 5
@@ -63,7 +64,10 @@ Attempt some more complex papers:
 
 ## Checkpoint 6
 
-Go back and learn more about RNNs.
+_Go back and learn more about RNNs._
 
+* https://karpathy.github.io/2015/05/21/rnn-effectiveness/
+* https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks
+* https://colah.github.io/posts/2015-08-Understanding-LSTMs/
 
 
