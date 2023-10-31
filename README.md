@@ -97,4 +97,8 @@ I spend about 10% of the time understanding a new concept (e.g. softmax, cross-e
 
 e.g. I wasted a whole day accidentally multiplying something by a delta_weight matrix instead of the original weight matrix
 
+And anyway, as I've learned about PyTorch, I'm seeing they have mechanisms for automatically computing the derivatives of various tensors you might want to compute gradients for, so long as you construct those tensors and manipulate them using PyTorch in the first place (i.e. don't sneak a numpy matrix in there.)
 
+And and and! I'm thinking to myself: how much of "being productive" here is going to be (A) learning all the deep fundamentals and then trying to be something of a research scientist/academic, improving Machine Learning as a field, generally; vs (B) using the fundamentals as a foundation for leveraging higher level tools to build useful stuff?
+
+Where's that line?
