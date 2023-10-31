@@ -69,5 +69,7 @@ _Go back and learn more about RNNs._
 * https://karpathy.github.io/2015/05/21/rnn-effectiveness/
 * https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-recurrent-neural-networks
 * https://colah.github.io/posts/2015-08-Understanding-LSTMs/
-
+* https://towardsdatascience.com/recurrent-neural-networks-and-natural-language-processing-73af640c2aa1
+* https://medium.com/@mliuzzolino/hello-rnn-55a9237b7112
+* https://www.youtube.com/watch?v=SEnXr6v2ifU
 
