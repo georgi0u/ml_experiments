@@ -8,7 +8,7 @@
 
 ## Checkpoint 1
 
-Implement basic neural net to classify  MNIST database of hand drawn digit characters.
+Implement basic neural net to classify MNIST database of hand drawn digit characters.
 
 Start in python: relatively easy, but can get a bit script-kid-y-ish relying on numpy's APIs to obscure some of the matrix math.
 
@@ -18,7 +18,7 @@ or a element product, etc. Also it's fun to see the training get fast, without y
 
 ## Checkpoint 2
 
-Investigate a bit of cross entropy cost fucntion
+Investigate a bit of cross entropy cost function
 
 ## Checkpoint 3
 
@@ -30,15 +30,15 @@ Learn the concepts of, if not the details of:
   * The gradient in early layers is the product of terms from all the later layers. If those later layer's definitions produce small outputs, the early layers will be smaller still. Or visa versa. Eventually, your "steps" either stop being signification or way overshoot the shape of the gradient.
 * Regularization:
     * Prefer small weights so we don't get so specific of an inferred polynomial.
-    * Reduces overfitting.
+    * Reduces over-fitting.
     * Accomplished by, e.g., adding an extra term to the cost function like the sum of the squares of *all* weights.
-        * Cost is low when weights are low OR when a large weight reduces the precceeding term significatly enough to outweight
+        * Cost is low when weights are low OR when a large weight reduces the preceding term significantly enough to outweigh
 	  the new second term.
-* Weight Initialzation:
+* Weight Initialization:
   * tl;dr: you can do better than random by trying to reduce large weights to begin with.
 * Softmax:
   * Don't use one of the standard/simpler non-linear (sigmoid, relu) functions to normalize output.
-  * Instead define activation of one neuron as a fraction  of all other neurons, effecitvely turning the output layer into a probability distribution.
+  * Instead define activation of one neuron as a fraction  of all other neurons, effectively turning the output layer into a probability distribution.
 
 ## Checkpoint 4
 
@@ -72,4 +72,29 @@ _Go back and learn more about RNNs._
 * https://towardsdatascience.com/recurrent-neural-networks-and-natural-language-processing-73af640c2aa1
 * https://medium.com/@mliuzzolino/hello-rnn-55a9237b7112
 * https://www.youtube.com/watch?v=SEnXr6v2ifU
+
+Ok, implemented a basic RNN.
+
+The main idea of persisting state through "cells" of networks, allowing you to keep track of sequence.
+
+Read a bit a bout GRU and LSTM: mechanisms for keeping track of which parts of previous state make sense to pay attention to and which don't.
+
+You can see my vanilla implementation struggle for lack of a sequential _relevance_ (i.e. lstm) mechanism.
+
+This becomes relevant, a lá https://www.youtube.com/watch?v=SEnXr6v2ifU, when you start to think about RNN encoders and decoders — first mention of a formal Attention mechanism (precursor to transformers).
+
+Also began to play with PyTorch, in order to to try and move stuff the Mac's GPU. Funny enough, things run slower there.
+
+And.. PyTorch is a python wrapper of Torch, which has it's own kind of gross language for generally specifying gpu algos.
+
+The thing I learned from exploring py torch and playing around with this:
+
+Most of my experimentation has been with trying to implement things as close to the math as possible.
+
+...and the place I get mostly tripped up at is: trying to do the gradient derivatives by hand on paper, and then translate them to code.
+
+I spend about 10% of the time understanding a new concept (e.g. softmax, cross-entropy, clipping, etc) and then 90% of the time ensuring my matrixes are the correct shape and my derivatives are the right form.
+
+e.g. I wasted a whole day accidentally multiplying something by a delta_weight matrix instead of the original weight matrix
+
 
