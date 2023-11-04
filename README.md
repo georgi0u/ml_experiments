@@ -102,3 +102,15 @@ And anyway, as I've learned about PyTorch, I'm seeing they have mechanisms for a
 And and and! I'm thinking to myself: how much of "being productive" here is going to be (A) learning all the deep fundamentals and then trying to be something of a research scientist/academic, improving Machine Learning as a field, generally; vs (B) using the fundamentals as a foundation for leveraging higher level tools to build useful stuff?
 
 Where's that line?
+
+## Checkpoint 7
+
+More reading:
+
+* https://writings.stephenwolfram.com/2023/02/what-is-chatgpt-doing-and-why-does-it-work/
+* https://gwern.net/scaling-hypothesis
+
+To-Do:
+* Practice some napkin math to calculate GPU requirements from Parameter size.
+* Let's _not_ do our own derivatives, and see how far we can get with PyTorch
+* Re-vist some of the earlier papers I didn't understand before I learned RNNs.
