@@ -114,3 +114,18 @@ To-Do:
 * Practice some napkin math to calculate GPU requirements from Parameter size.
 * Let's _not_ do our own derivatives, and see how far we can get with PyTorch
 * Re-vist some of the earlier papers I didn't understand before I learned RNNs.
+
+## Checkpoint 8
+
+* Let's backup, and read through https://pytorch.org/tutorials/
+  * This is so fucking cool. Ha.
+  * Everything up to their ["Build the Neural Network"](https://pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html) chapter was inferable enough, as seen above.
+  * But they've gone ahead and abstracted all the layering, differentiation, and optimization out!
+
+Ok, got an LSTM based RNN working, on the shakespear stuff. Played around with some of the new hyperparameters made easy by pytorch.
+* Picked my own learning rate, with some experimentation
+* Learned a bit about SGD with momentum.
+
+Also read a bit about generalization: [Pretraining Data Mixtures Enable Narrow Model Selection Capabilities in Transformer Models]
+(https://arxiv.org/abs/2311.00871)
+
