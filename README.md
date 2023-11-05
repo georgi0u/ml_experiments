@@ -129,3 +129,8 @@ Ok, got an LSTM based RNN working, on the shakespear stuff. Played around with s
 Also read a bit about generalization: [Pretraining Data Mixtures Enable Narrow Model Selection Capabilities in Transformer Models]
 (https://arxiv.org/abs/2311.00871)
 
+## Checkpoint 8
+
+Went back to [Attention Is All You Need](https://arxiv.org/abs/1706.03762) and understood a lot more of it. I have a basic idea of attention, but I'm still not completely understanding the difference between a traditional RNN with attention and an attention-only transformer.
+
+Let's give this pytroch tutorial a shot: https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html.

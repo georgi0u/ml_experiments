@@ -105,7 +105,6 @@ def main(data):
                     output_str += output_char
                     input = output_char
                 
-                
                 print(f"Position {position}, Loss {loss.item()}")
                 print('<start>')
                 print(output_str)
@@ -115,10 +114,7 @@ def main(data):
     
 
 if __name__ == '__main__':
-
-
     input_data_filename = sys.argv[1]
     with open(input_data_filename) as fp:
         data = fp.read()
-
     main(data)
