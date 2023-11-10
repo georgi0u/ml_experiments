@@ -134,3 +134,43 @@ Also read a bit about generalization: [Pretraining Data Mixtures Enable Narrow M
 Went back to [Attention Is All You Need](https://arxiv.org/abs/1706.03762) and understood a lot more of it. I have a basic idea of attention, but I'm still not completely understanding the difference between a traditional RNN with attention and an attention-only transformer.
 
 Let's give this pytroch tutorial a shot: https://pytorch.org/tutorials/intermediate/seq2seq_translation_tutorial.html.
+
+## Checkpoint 9
+
+Switched gears, back to the day job.
+
+Spent some time looking into production-izing of open models.
+
+Checked out llama-2, directly from meta. Hit the (apparently typical) roadblocks when trying to run on the Mac laptop: 
+* Meta's code is distributed as a "raw" PyTorch model (pth), and their provided instantiating code is — at first glance — hardwired to use Nvidia/cuda hardware. Not sure if a `torch.set_default_device` would let that work out of the box, but didn't feel like going down that route.
+* Secondly, even the "small" 7B param model is ~20 Gigs big. Not fitting on my 32gig laptop without swapping.
+
+Moved on to find llama-cpp and ggerganov's quantized versions of llama-2. Curious point that removing weight/bias precision does *not* kill performance/accuracy as much as you might expect.
+
+So, got that working well enough. Is **that** worth production-izing?
+
+Looked into some go bindings and LocalAI.
+* https://github.com/go-skynet/go-llama.cpp
+* https://github.com/mudler/LocalAI
+
+Seems promising, but...
+
+Do I really want to be relying on a privately maintained project? How robust is this stuff?
+
+My intuition is: one can use the weights, but the projects are still a bit too early and also heavy for my use. As in, I don't want everything LocalAI has to offer. And I don't want to deal with ggerganov's formats until they're more robust/time tested/persistent.
+
+^ An opinion somewhat biased by my parallel discovery of everything going on at HuggingFace.
+
+HuggingFace has their own formats, with convenient ways for fine tunning and saving "checkpoint" files describing changes to underlying base models!
+
+Great! 
+
+Further, their [`transformers`](https://github.com/huggingface/transformers) library seems much more application friendly than trying to wrap up PyTorch in an application layer. 
+
+e.g., it's more declarative and makes reasonable assumptions to minimize initial configuration. 
+
+So for fun, got one of ggerganov's quantized models converted to a huggingface format, and got that running through the transformers lib.
+
+Moving on, I also found Anyscale.com and https://ray.io/ <- seems this is the converging on canonical way to productionize _any_ model, allowing for the segregation of serving ingress servers and models, as well as the managed-allocation of resources for each (GPUS, CPUs across replicas, etc.). And this all works with k8. Great.
+
+Started toying around with that, allocating a couple NVIDIA cards on GCP, but ran into headaches with drivers. Got far enough to prove the point though.
