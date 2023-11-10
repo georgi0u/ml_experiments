@@ -64,10 +64,13 @@ def main(data):
     signal.signal(signal.SIGINT, sig_handle)
     
     loss_fn = nn.CrossEntropyLoss()
-    optimizer = torch.optim.SGD(rnn.parameters(), lr=.002, momentum=.09)
+    optimizer = torch.optim.SGD(rnn.parameters(), lr=.0005, momentum=.09)
 
     position = 0
-    while position + sample_size + 1 < len(data):
+    while True:
+        if  position + sample_size + 1 >= len(data):
+            position = 0
+
         rnn.train()
         optimizer.zero_grad()
 
